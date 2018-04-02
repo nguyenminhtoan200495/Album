@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-1 col-md-offset-11"><button routerLink="/posts/create" class="btn btn-default"><i class="fas fa-plus-square"></i> Add</button></div>
+</div>
+<br/>
+
+<table class="table table-bordered table-striped table-hover">
+  <tr>
+    <th>ID</th>
+    <th>UserID</th>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Detail</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <tbody class="posts">
+    <tr *ngFor="let post of posts">
+      <td>
+        {{post.id}}
+      </td>
+      <td>
+        {{post.userId}}
+      </td>
+      <td>
+        {{post.title}}
+      </td>
+      <td>
+        {{post.body}}
+      </td>
+      <td>          
+          <button routerLink="/posts/{{post.id}}" class="btn btn-default"><i class="fas fa-eye"></i>Detail</button>
+      </td>
+      <td>
+          <button class="btn btn-primary"><i class="far fa-edit"></i></button>
+      </td>
+      <td>
+        <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>

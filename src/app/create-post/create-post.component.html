@@ -1,0 +1,25 @@
+<h1>Create a new post!</h1>
+<form>
+  <div class="row">
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>UserId</label>
+            <input type="text" class="form-control" placeholder="UserId">
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" placeholder="Title">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>Body</label>
+            <textarea class="form-control" rows="3"></textarea>
+        </div>
+    </div>
+  </div>
+  <button  class="btn btn-primary" (click)="createPost()">Create</button>
+  <button  class="btn btn-default" (click)="goBack()">Back</button>
+</form>
