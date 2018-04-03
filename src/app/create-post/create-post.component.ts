@@ -14,7 +14,7 @@ export class CreatePostComponent implements OnInit {
 
   //@Input() post: Post;
   post: Post = {
-    id: 101,
+    id: null,
     userId: 0,
     title: '',
     body: ''
@@ -40,10 +40,16 @@ export class CreatePostComponent implements OnInit {
     //this.postService.addPost(this.post);
     this.postService.addPost(this.post)
       .subscribe(post => {
+        console.log('created post', post);
+
         this.posts.push(post);
+        // show toast: SUCCESS
+      }, err => {
+        //....
+        // show toast: ERROR
       });
       
-    this.location.back();
+    //this.location.back();
     
   }
 

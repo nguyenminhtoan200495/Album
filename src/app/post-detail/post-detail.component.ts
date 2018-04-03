@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
- 
-import { Post }         from '../post';
-import { PostService }  from '../post.service';
+
+import { Post } from '../post';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -19,7 +19,8 @@ export class PostDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
-    private location: Location
+    private location: Location,
+    private router : Router
   ) { }
 
   ngOnInit() {
@@ -33,9 +34,14 @@ export class PostDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.postService.updatePost(this.post);
+
     console.log(this.post);
-    this.location.back();
+    this.postService.updatePost(this.post).subscribe(data => {
+      console.log('data', data);
+      this.router.navigate(["/posts"])
+    })
+
+
   }
 
   delete(post: Post): void {

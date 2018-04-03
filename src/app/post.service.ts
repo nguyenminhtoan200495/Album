@@ -45,14 +45,23 @@ export class PostService {
   // }
 
   addPost (post: Post): Observable<Post> {
-    return this.http.post<Post>(this.postsUrl, post, httpOptions).pipe(
-      tap((post: Post) => this.log(`added post w/ id=${post.id}`)),
-      catchError(this.handleError<Post>('addPost'))
-    );
+     return this.http.post<Post>(this.postsUrl + '/posts', post, httpOptions).map( data => {
+       this.log('....');
+       return data;
+     }).catch( err => {
+       //catchError(this.handleError<Post>('addPost', post));
+       return Observable.throw(err);
+     })
+     
+     
+     //.pipe(
+    //   tap((post: Post) => this.log(`added post w/ id=${post.id}`)),
+    //   catchError(this.handleError<Post>('addPost'))
+    // );
   }
 
   updatePost (post: Post): Observable<any> {
-    return this.http.put(this.postsUrl, post, httpOptions).pipe(
+    return this.http.put(this.postsUrl + '/posts/' + post.id, post, httpOptions).pipe(
       tap(_ => this.log(`updated post id=${post.id}`)),
       catchError(this.handleError<any>('updatePost'))
     );
