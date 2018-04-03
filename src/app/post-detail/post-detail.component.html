@@ -2,5 +2,8 @@
     <h2>{{ post.title}}</h2>
     <p>Id: {{ post.id }} | UserId: {{ post.userId }}</p>
     <div>{{post.body}}</div>
+    <app-create-edit [post]="post"></app-create-edit>
+    <button class="btn btn-default" (click)="save()">Save</button>
+    <button class="btn btn-default" (click)="delete()">Delete</button>
     <button class="btn btn-default" (click)="goBack()">Back</button>
 </div>

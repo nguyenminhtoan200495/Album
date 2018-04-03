@@ -1,0 +1,22 @@
+<div>
+  <div class="row">
+    <div class="col-md-2">
+        <div class="form-group">
+            <label>UserId</label>
+            <input [(ngModel)]="post.userId" type="text" class="form-control" placeholder="UserId">
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div class="form-group">
+            <label>Title</label>
+            <input [(ngModel)]="post.title" type="text" class="form-control" placeholder="Title">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>Body</label>
+            <textarea [(ngModel)]="post.body" class="form-control" rows="3"></textarea>
+        </div>
+    </div>
+  </div>
+</div>

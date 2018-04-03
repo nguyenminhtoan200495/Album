@@ -12,7 +12,14 @@ import { PostService }  from '../post.service';
 })
 export class CreatePostComponent implements OnInit {
 
-  @Input() post: Post;
+  //@Input() post: Post;
+  post: Post = {
+    id: 101,
+    userId: 0,
+    title: '',
+    body: ''
+  };
+  posts: Post[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -25,6 +32,19 @@ export class CreatePostComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  createPost(): void {
+    console.log(this.post.id);
+    console.log(this.post);
+    //this.postService.addPost(this.post);
+    this.postService.addPost(this.post)
+      .subscribe(post => {
+        this.posts.push(post);
+      });
+      
+    this.location.back();
+    
   }
 
 }

@@ -20,8 +20,9 @@ export class PostsComponent implements OnInit {
   }
 
   getPosts(): void {
+    //this.postService.getPosts();
     this.postService.getPosts()
-      .subscribe(posts => this.posts = posts.slice(0, 10));
+      .subscribe(posts => this.posts = posts.slice(0, 12));
   }
 
 }
